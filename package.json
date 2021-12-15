@@ -1,0 +1,18 @@
+{
+	"name": "auto-club-webapp",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"serve": "vite preview",
+		"start": "yarn build && yarn serve"
+	},
+	"devDependencies": {
+		"typescript": "^4.5.2",
+		"vite": "^2.6.14"
+	},
+	"dependencies": {
+		"@wave-studios/wavejs": "^1.0.5"
+	}
+}

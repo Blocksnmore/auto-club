@@ -1,0 +1,22 @@
+body {
+	background-color: #2C2F33;
+	font-family: "Arial", "san-serif";
+	color: white;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+button {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+}
+
+a[href] {
+	text-decoration: underline;
+	color: white;
+}
+
+hr {
+	width: 5rem;
+}
