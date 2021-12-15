@@ -40,7 +40,7 @@ export default function PlayerComponent({
 						onClick={() => {
 							const json = data.players.filter((p) => p.name == name)[0];
 							json.wins += 1;
-							json.money += data.money.win * data.money.multipler;
+							json.money += data.money.win * (data.money.multipler * json.rank);
 							saveDb(data);
 						}}
 					>
@@ -50,7 +50,7 @@ export default function PlayerComponent({
 						onClick={() => {
 							const json = data.players.filter((p) => p.name == name)[0];
 							json.losses += 1;
-							json.money += data.money.loss * data.money.multipler;
+							json.money += data.money.loss * (data.money.multipler * json.rank);
 							saveDb(data);
 						}}
 					>
