@@ -61,6 +61,7 @@ export default function App() {
 					id="multipler"
 					value={data.money.multipler}
 					placeholder="Money Multipler"
+                                        step="any"
 					required
 				/>
 				<br />
