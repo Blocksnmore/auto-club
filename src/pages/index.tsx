@@ -8,7 +8,7 @@ const stock: jsonData = {
 	money: {
 		win: 5000,
 		loss: 1500,
-		multipler: 1,
+		multiplier: 0,
 	},
 };
 const [playerData, setPlayerdata] = WJS.useState<jsonData>(
@@ -39,29 +39,19 @@ export default function App() {
 						(document.getElementById("json") as HTMLInputElement).value
 					) as jsonData;
 
-					data.money = {
-						win: (document.getElementById("winmoney") as HTMLInputElement)
-							.value as unknown as number,
-						loss: (document.getElementById("lossmoney") as HTMLInputElement)
-							.value as unknown as number,
-						multipler: (
-							document.getElementById("multipler") as HTMLInputElement
-						).value as unknown as number,
-					};
-
 					saveDb();
 				}}
 			>
-				<label>Database </label>
+				<label for="json">Database </label>
 				<input id="json" type="text" value={JSON.stringify(data)} required />
 				<br />
-				<label>Multipler </label>
+				<label for="multiplier">Multiplier </label>
 				<input
 					type="number"
-					id="multipler"
-					value={data.money.multipler}
-					placeholder="Money Multipler"
-                                        step="any"
+					id="multiplier"
+					value={data.money.multiplier}
+					placeholder="Money Multiplier"
+					step="any"
 					required
 				/>
 				<br />
@@ -85,6 +75,22 @@ export default function App() {
 				<br />
 				<button type="submit">Set JSON</button>
 				<button
+					onClick={() => {
+						data.money = {
+							win: (document.getElementById("winmoney") as HTMLInputElement)
+								.value as unknown as number,
+							loss: (document.getElementById("lossmoney") as HTMLInputElement)
+								.value as unknown as number,
+							multiplier: (
+								document.getElementById("multiplier") as HTMLInputElement
+							).value as unknown as number,
+						};
+						saveDb();
+					}}
+				>
+					Save
+				</button>
+				<button
 					onClick={async () => {
 						data = JSON.parse(JSON.stringify(stock));
 						saveDb();
@@ -94,11 +100,14 @@ export default function App() {
 				</button>
 			</form>
 			<div>
-				<h2>Users</h2>
-				<h2>Multipler: {data.money.multipler}</h2>
-				<h2>
-					Money - Win: {data.money.win} Loss: {data.money.loss}
-				</h2>
+				<h2>Money Values:</h2>
+				<h3>
+					Win: {data.money.win}
+					<br />
+					Loss: {data.money.loss}
+					<br />
+					Multiplier: {data.money.multiplier}
+				</h3>
 
 				<form
 					onSubmit={(e: Event) => {
@@ -115,7 +124,7 @@ export default function App() {
 						saveDb();
 					}}
 				>
-					<h2>Add a user</h2>
+					<h3>Add User</h3>
 					<input id="name" type="text" placeholder="Name" required />
 					<br />
 					<button type="submit">Add</button>
@@ -128,6 +137,8 @@ export default function App() {
 						marginBottom: "0.5rem",
 					}}
 				/>
+
+				<h2>Users</h2>
 
 				{data.players.length > 0 ? (
 					<></>

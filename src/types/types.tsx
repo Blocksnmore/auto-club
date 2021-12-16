@@ -3,7 +3,7 @@ export interface jsonData {
 	money: {
 		win: number;
 		loss: number;
-		multipler: number;
+		multiplier: number;
 	};
 }
 

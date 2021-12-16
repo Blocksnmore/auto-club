@@ -1,4 +1,5 @@
 import type { playerData, jsonData } from "../types/types";
+import { calculateMoney } from "../utils/money";
 
 export default function PlayerComponent({
 	data,
@@ -40,7 +41,7 @@ export default function PlayerComponent({
 						onClick={() => {
 							const json = data.players.filter((p) => p.name == name)[0];
 							json.wins += 1;
-							json.money += data.money.win * (data.money.multipler * json.rank);
+							json.money += calculateMoney(data.money.win, json.rank, data.money.multiplier);
 							saveDb(data);
 						}}
 					>
@@ -50,7 +51,7 @@ export default function PlayerComponent({
 						onClick={() => {
 							const json = data.players.filter((p) => p.name == name)[0];
 							json.losses += 1;
-							json.money += data.money.loss * (data.money.multipler * json.rank);
+							json.money += calculateMoney(data.money.loss, json.rank, data.money.multiplier);
 							saveDb(data);
 						}}
 					>
