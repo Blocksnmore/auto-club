@@ -77,13 +77,16 @@ export default function App() {
 				<button
 					onClick={() => {
 						data.money = {
-							win: (document.getElementById("winmoney") as HTMLInputElement)
-								.value as unknown as number,
-							loss: (document.getElementById("lossmoney") as HTMLInputElement)
-								.value as unknown as number,
-							multiplier: (
-								document.getElementById("multiplier") as HTMLInputElement
-							).value as unknown as number,
+							win: parseInt(
+								(document.getElementById("winmoney") as HTMLInputElement).value
+							),
+							loss: parseInt(
+								(document.getElementById("lossmoney") as HTMLInputElement).value
+							),
+							multiplier: parseInt(
+								(document.getElementById("multiplier") as HTMLInputElement)
+									.value
+							),
 						};
 						saveDb();
 					}}
@@ -91,7 +94,7 @@ export default function App() {
 					Save
 				</button>
 				<button
-					onClick={async () => {
+					onClick={() => {
 						data = JSON.parse(JSON.stringify(stock));
 						saveDb();
 					}}
