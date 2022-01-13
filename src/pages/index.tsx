@@ -11,14 +11,13 @@ const stock: jsonData = {
 		multiplier: 0,
 	},
 };
-const [playerData, setPlayerdata] = WJS.useState<jsonData>(
-	localStorage.getItem("db") != undefined
-		? JSON.parse(localStorage.getItem("db")!)
-		: stock
-);
 
 export default function App() {
-	let data = playerData();
+	let [data, setPlayerdata] = WJS.useState<jsonData>(
+		localStorage.getItem("db") != undefined
+			? JSON.parse(localStorage.getItem("db")!)
+			: stock
+	);
 
 	const saveDb = () => {
 		const sortedJson = {

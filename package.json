@@ -13,6 +13,6 @@
 		"vite": "^2.6.14"
 	},
 	"dependencies": {
-		"@wave-studios/wavejs": "^1.0.5"
+		"@wave-studios/wavejs": "^1.0.9-bugfix"
 	}
 }
