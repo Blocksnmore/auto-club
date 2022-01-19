@@ -82,7 +82,7 @@ export default function App() {
 							loss: parseInt(
 								(document.getElementById("lossmoney") as HTMLInputElement).value
 							),
-							multiplier: parseInt(
+							multiplier: parseFloat(
 								(document.getElementById("multiplier") as HTMLInputElement)
 									.value
 							),
